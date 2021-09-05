@@ -1,13 +1,13 @@
 const ORDER_ASC_BY_PRICE = "PRECIO";
 const ORDER_DESC_BY_PRICE = "PRECIO_DESC";
 const ORDER_BY_PROD_COUNT = "Vend.";
-var currentProductsArray = []; //creo el arreglo vacio donde cargar
+var currentProductsArray = []; 
 var currentSortCriteria = undefined;
 var minPrice = undefined;
 var maxPrice = undefined;
 
 
-//sortAsc, sortDesc, sortByRel
+
 function sortProducts(criteria, array){
     let result = [];
 
@@ -40,7 +40,6 @@ function sortProducts(criteria, array){
     return result;
 }
 
-//funcion  que muestra el json 
 function showProductsList(){
     let htmlContentToAppend = "";
     for(let i = 0; i < currentProductsArray.length; i++){
@@ -85,7 +84,7 @@ function sortAndShowProducts(sortCriteria, productsArray){
 
     currentProductsArray = sortProducts(currentSortCriteria, currentProductsArray);
 
-    //Muestro los productos ordenados
+    
     showProductsList();
 }
 
