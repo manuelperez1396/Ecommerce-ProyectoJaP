@@ -27,25 +27,78 @@
   </nav>
   <main role="main">
     <div class="container mt-5">
-    <h2 id="NombreProducto"></h2>
-    <hr>
-    <p id="descripcion"></p>
-    </div>
+      <h3 id="nombreProducto"></h3>
+      <hr class="my-3">
+      <dl>
+        <!-- <dt>Descripción</dt> -->
+        <dd>
+          <p id="descripcion"></p>
+        </dd>
+
+        <dt>Cantidad de ventas de este producto</dt>
+        <dd>
+          <p id="vendidos"></p>
+        </dd>
+
+        <dt>Categoría</dt>
+        <dd>
+          <p id="categoria"></p>
+        </dd>
+
+        <dt>Precio</dt>
+        <dd>
+          <p id="precioMoneda" style="font-size:20px;"></p>
+        </dd>
+
+        <dt>Imágenes</dt>
+        <dd>
+          <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
+          </div>
+        </dd>
+      </dl>
   </main>
-<!--comentarios-->
-  <div id="comentarios" class="container p-5"> 
+  <hr>
+  <div class="container p-2">
+    <h2>Comentarios de nuestros clientes</h2>
+  </div>
+
+  <!--comentarios-->
+  <div id="comentarios" class="container p-2">
     <div class="row">
       <div class="list-group">
       </div>
     </div>
   </div>
+  <div class="container p-2">
+    <hr>
+    <h3>Publica tu comentario</h3>
+  </div>
+
+  <div class="container p-2">
+    <form id="agregarComentario">
+      <textarea name="comentarios" id="textComment" rows="5" cols="40"
+        placeholder="Escribe aqui tu comentario..."></textarea><br>
+      <input type="button" class="btn btn-primary btn-lg" value="Enviar comentario">
+      <br>
+    </form>
+  </div>
+  <div class="container">
+    <h4>Calificanos</h4>
+  </div>
+  <div id="estrellas" class="container p-3">
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+  </div>
+
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-right">
         <a href="#">Volver arriba</a>
       </p>
-      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
   <div id="spinner-wrapper">

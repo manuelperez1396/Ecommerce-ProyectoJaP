@@ -5,6 +5,25 @@ var currentProductsInfoArray = [];
 var showProductsInfo =[];
 
 
+function showImagesGallery(array){
+
+    let htmlContentToAppend = "";
+
+    for(let i = 0; i < array.length; i++){
+        let imageSrc = array[i];
+
+        htmlContentToAppend += `
+        <div class="col-lg-3 col-md-4 col-6">
+            <div class="d-block mb-4 h-100">
+                <img class="img-fluid img-thumbnail imagenesProd" src="` + imageSrc + `" alt="">
+            </div>
+        </div>
+        `
+
+        document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
+    }
+}
+
 function showProductsInfo(){
     let htmlContentToAppend = "";
     for(let i = 0; i < currentProductsInfoArray.length; i++){
@@ -51,7 +70,7 @@ function showComments(array){
                 <th><b>`+ comment.user +`</b></th>
             </tr>
             <tr>
-                <th>` + comment.score +`</th>
+                <th>` + (genStars(comment.score)) +`</th>
             </tr>
             <tr>
                 <td><i>`+ comment.description +`</i></td>
@@ -64,6 +83,18 @@ function showComments(array){
     }
         document.getElementById("comentarios").innerHTML = htmlContentToAppend;
 }
+function genStars(stars){
+
+    let estrellitas  = "";
+
+    for(let i = 0; i < stars; i++){
+        estrellitas += `<span style="font-size: 30px; color:orange;">★</span>`
+    }
+    for(let i = stars; i < 5; i++){
+        estrellitas += `<span style="font-size: 30px; color: grey;">★</span>`
+    }
+    return estrellitas
+}
 
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCT_INFO_URL).then(function(resultObj){
@@ -71,17 +102,20 @@ document.addEventListener("DOMContentLoaded", function(e){
         {
             product = resultObj.data;
 
-            let productNameHTML  = document.getElementById("NombreProducto");
+            let productNameHTML  = document.getElementById("nombreProducto");
             let productDescriptionHTML = document.getElementById("descripcion");
-           
+            let productCountHTML = document.getElementById("vendidos");
+            let productCategoryHTML = document.getElementById("categoria");
+            let productPriceHTML = document.getElementById("precioMoneda");
         
             productNameHTML.innerHTML = product.name;
             productDescriptionHTML.innerHTML = product.description;
-            
+            productCountHTML.innerHTML = product.soldCount;
+            productCategoryHTML.innerHTML = product.category;
+            productPriceHTML.innerHTML = product.currency + " " + product.cost;
 
-            //Muestra las imagenes de la galeria
-            
-            
+            showImagesGallery(product.images);
+           
         }
     });
 //Cargamos el JSON de los comentarios para poder mostrarlos
