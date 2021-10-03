@@ -23,6 +23,18 @@ function showImagesGallery(array){
         document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
     }
 }
+function genStars(stars){
+
+    let estrellitas  = "";
+
+    for(let i = 0; i < stars; i++){
+        estrellitas += `<span style="font-size: 30px; color:orange;">★</span>`
+    }
+    for(let i = stars; i < 5; i++){
+        estrellitas += `<span style="font-size: 30px; color: grey;">★</span>`
+    }
+    return estrellitas
+}
 
 function showProductsInfo(){
     let htmlContentToAppend = "";
@@ -55,7 +67,28 @@ function showProductsInfo(){
         document.getElementById("lista-productos").innerHTML = htmlContentToAppend;
     }
 
+    function showRelatedProducts(array){
 
+    
+        let htmlContentToAppend = "";
+    
+        for (let i = 0; i < array.length; i++) {
+            var relIndex = array[i];
+            var relProd = relatedProduct[relIndex];
+        
+            htmlContentToAppend += `
+            <div class="col-lg-3 col-md-4 col-6">
+                <div class="d-block mb-4 h-100">
+                    <img class="img-fluid img-thumbnail" src="` + relProd.imgSrc + `" alt="">
+                <h4 class="mb-1">`+ relProd.name +`</h4>
+                <p class="mb-1">` + relProd.description + `</p>
+                <a href="product-info.html">Ver producto</a>
+                </div>
+            </div>
+            `
+        }
+            document.getElementById("relatedProducts").innerHTML = htmlContentToAppend;
+    }
 function showComments(array){
     
     let htmlContentToAppend = "";
@@ -83,18 +116,7 @@ function showComments(array){
     }
         document.getElementById("comentarios").innerHTML = htmlContentToAppend;
 }
-function genStars(stars){
 
-    let estrellitas  = "";
-
-    for(let i = 0; i < stars; i++){
-        estrellitas += `<span style="font-size: 30px; color:orange;">★</span>`
-    }
-    for(let i = stars; i < 5; i++){
-        estrellitas += `<span style="font-size: 30px; color: grey;">★</span>`
-    }
-    return estrellitas
-}
 
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCT_INFO_URL).then(function(resultObj){
@@ -118,6 +140,13 @@ document.addEventListener("DOMContentLoaded", function(e){
            
         }
     });
+//Se carga el JSON de los productos para mostrar los relacionados dentro
+getJSONData(PRODUCTS_URL).then(function(resultObj){
+    if (resultObj.status === "ok") { relatedProduct = resultObj.data; }
+
+    
+    showRelatedProducts(product.relatedProducts);
+});
 //Cargamos el JSON de los comentarios para poder mostrarlos
 getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
     if (resultObj.status === "ok") { comments = resultObj.data; }
