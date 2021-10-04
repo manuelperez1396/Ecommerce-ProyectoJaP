@@ -73,8 +73,8 @@ function showProductsInfo(){
         let htmlContentToAppend = "";
     
         for (let i = 0; i < array.length; i++) {
-            var relIndex = array[i];
-            var relProd = relatedProduct[relIndex];
+            var related = array[i];
+            var relProd = relatedProduct[related];
         
             htmlContentToAppend += `
             <div class="col-lg-3 col-md-4 col-6">

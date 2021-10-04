@@ -39,6 +39,13 @@ var getJSONData = function(url){
         return result;
     });
 }
+let entrar = localStorage.getItem("usuario");
+if(!entrar){
+  window.location="index.html";
+}else{
+  document.getElementById("userName").innerHTML = entrar;
+  }
+
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
