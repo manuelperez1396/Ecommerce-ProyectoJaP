@@ -40,17 +40,130 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      <div class="dropdown">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="userName" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false"></a>
+        <div class="dropdown-menu" aria-labelledby="userName">
+          <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+          <a class="dropdown-item" href="cart.html">Mi Carrito</a>
+          <a class="dropdown-item" href="index.html">Cerrar sesión</a>
+        </div>
+      </div>
+    </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 17/10/2021) y Entrega 7 (Fecha de entrega: 14/11/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <form class="needs-validation" novalidate>
+    <div class="container p-5">
+
+      <table class="table table-danger table-striped">
+        <thead>
+          <tr>
+            <th>Artículo</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Unidades</th>
+            <th>Subtotal</th>
+          </tr>
+        </thead>
+        <tbody id="carrito">
+
+        </tbody>
+      </table>
     </div>
-  </div>
+    <div>
+
+      <div class="container p-5">
+
+        <h3>Envio:</h3>
+        <hr>
+        <h5>País:</h5>
+        <input type="text" placeholder="País" name="pais" id="pais" class="form-control" required><br>
+        <h5>Dirección:</h5>
+        <input type="text" placeholder="Calle" name="calle" id="calle" class="form-control" required><br>
+        <input type="number" placeholder="Número de puerta" name="numero" id="numero" class="form-control" required><br>
+        <input type="text" placeholder="Esquina" name="esquina" id="esquina" class="form-control" required><br>
+
+        <h5>Tipo de Envio</h5>
+        <div>
+          <input type="radio" id="envio" value="5" name="envio" checked="" required>
+          <label for="envio"> Standard 5% - 12 a 15 días</label> <br>
+          <input type="radio" id="envio1" value="7" name="envio">
+          <label for="envio1"> Express 7% - 5 a 8 días</label> <br>
+          <input type="radio" id="envio2" value="15" name="envio">
+          <label for="envio2"> Premium 15% - 2 a 5 días</label> <br>
+        </div>
+        <br>
+
+        <button type="button" id="botonPago" class="btn btn-success" data-toggle="modal"
+          data-target="#exampleModal">Método de
+          pago</button>
+        <hr>
+      </div>
+      <!---------------------------------------------MODAL----------------------------------------------------------------------------------------------->
+
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+        style="background-image: url(img/2.jpg); background-size: cover;" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel" style="color: blue;">Método de pago</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" style="color: green;">
+
+              <div>
+                <h5>Tipo de pago:</h5>
+                <input type="radio" name="formaPago" value="1" checked required>
+                <label for="credito">Crédito</label><br>
+
+                <input type="radio" name="formaPago" value="2">
+                <label for="transbanc">Transferencia Bancaria</label><br>
+
+                <br>
+              </div>
+              <div id="infoTarjeta">
+                <div>
+                  <input type="text" placeholder="Nombre del Propietario" name="tarjetaNombre" id="tarjetaNombre"
+                    class="form-control" required><br>
+                  <input type="number" placeholder="Numero de Tarjeta" name="tarjetaNumero" id="tarjetaNumero"
+                    class="form-control" required>
+                </div>
+              </div>
+              <div id="infoCuentaDeBanco">
+              </div>
+
+
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-block btn-success" data-dismiss="modal"
+                aria-label="Close">Listo</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container p-5">
+        <table class="table table-striped table-success">
+          <thead>
+            <th>Precio</th>
+            <th style="text-align: center;">Precio del Envio</th>
+            <th style="text-align: right;">Precio Total</th>
+          </thead>
+          <tbody id="Pagar"></tbody>
+        </table>
+        <div id="finalEnvio"></div>
+        <button type="submit" class="btn btn-block btn-success" data-toggle="modal" data-target="#exampleModalCenter"
+          id="todoCompleto">Confirmar compra</button>
+        <hr>
+      </div>
+      <!---------------------------------------------MODAL----------------------------------------------------------------------------------------------->
+
+    </div>
+  </form>
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
