@@ -23,7 +23,7 @@ function muestraCarro(array) {
             <td><img src="${articulos.src}" width="105px"></td>
             <td>${articulos.name}</td>
             <td>${articulos.unitCost}</td>
-            <td><input style="width:80px;" id=P onchange="calculoSubt(${articulos.unitCost})" type="number"  class="form-control" value="${articulos.count}" min="1"></td>
+            <td><input style="width:80px;" id="subtot" onchange="calculoSubt(${articulos.unitCost})" type="number"  class="form-control" value="${articulos.count}" min="1"></td>
             <td><span id="preciosub" style="font-weight:bold;">${calculoS}</span></td>
         </tr>
         `
@@ -31,6 +31,11 @@ function muestraCarro(array) {
         document.getElementById("carrito").innerHTML = content;
     }
 }
+
+
+
+
+
 
 function calculoTotal() {
     let subTotal = parseInt(document.getElementById("preciosub").innerHTML);
