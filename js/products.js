@@ -49,26 +49,27 @@ function showProductsList(){
         if (((minPrice == undefined) || (minPrice != undefined && parseInt(product.cost) >= minPrice)) &&
             ((maxPrice == undefined) || (maxPrice != undefined && parseInt(product.cost) <= maxPrice))){
 
-            htmlContentToAppend += `
-            <a href="product-info.html" class="list-group-item list-group-item-action">
-            <div class="row">
-            <div class="col-3">
-                <img src="${product.imgSrc}" class="img-thumbnail">
+            htmlContentToAppend +=  `
+            <div class="col-lg-4 col-md-6 col-sm-6 card-deck">
+                <a href="product-info.html" class="card mb-4 shadow-sm custom-card">
+                    
+                        <img class="bd-placeholder-img card-img-top" src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
+                    
+                    <div class="card-body">
+                        
+                            <div class="card-text">
+                            <h4>`+ product.name + "  -  " + product.cost + ` USD</h4>
+                            <p>`+ product.description + `</p>
+                            </div>
+                            <div class"d-flex justify-content-between align-items-center">
+                            
+                            <small class="text-muted">` + product.soldCount + ` vendidos</small>
+                            </div>
+                       
+    
+                    </div>
+                </a>
             </div>
-            <div class="col">
-                <div class="d-flex w-100 justify-content-between">
-                    <h4 class="mb-1">${product.name}</h4>
-                    <small class="text-muted">
-                     <b>${product.currency} $${product.cost} </b><br>
-                     ${product.soldCount}
-                    </small>
-                </div>
-                ${product.description}
-                
-            </div>
-           
-        </div>
-            </a>
             `
         }
 

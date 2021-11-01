@@ -51,34 +51,49 @@
       </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 6 (Fecha de entrega: 31/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+
+  <div class="row">
+    <div class="form-group col-6">
+      <label for="nombrePerfil">Nombre</label>
+      <input type="text" id="nombrePerfil" class="form-control" placeholder="Nombre*" required><br>
+    </div>
+    <div class="form-group col">
+      <label for="apellidoPerfil">Apellido</label>
+      <input type="text" id="apellidoPerfil" class="form-control col-12" placeholder="Apellido*" required><br>
+    </div>
+    <div class="col-12">
+      <label for="emailPerfil">E-mail</label>
+      <input type="text" id="emailPerfil" class="form-control col-12" placeholder="E-mail*" required><br>
     </div>
   </div>
-  <footer class="text-muted bg-light">
-    <div class="container">
-      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+  <div class="row">
+    <div class="form-group col-3">
+      <label for="edadPerfil">Edad</label>
+      <input type="number" id="edadPerfil" class="form-control " placeholder="Edad*" required>
     </div>
-  </footer>
-  <div class="alert fade alert-success" role="alert" id="alertResult">
-    <span id="resultSpan"></span>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+    <div class="form-group col-4">
+      <label for="telefonoPerfil">Teléfono</label>
+      <input type="number" id="telefonoPerfil" class="form-control " placeholder="Teléfono de contacto*" required>
+    </div>
+    <div class="form-group col">
+      <label for="paisPerfil">País</label>
+      <input type="text" id="paisPerfil" class="form-control " placeholder="País de residencia">
     </div>
   </div>
+  <div class="row">
+    <div class="form-group col-lg-8 col-md-7 col-sm-6"></div>
+    <div class="form-group col"><small class="text-muted">Los espacios con <strong>*</strong> son
+        obligatorios</small></div>
+  </div>
+  <div id="alertaPerfil"></div>
+  <hr>
+  <div style="text-align: center;"><button type="button" id="guardarCambios"
+      class="btn btn-primary btn-lg">Guardar cambios</button>
+  </div><br>
+  </div>
+  </div>
+
+
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dropzone.js"></script>
